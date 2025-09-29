@@ -1,1 +1,27 @@
-
+{
+  "app_title": "Maître de Réparation Bluetooth IA",
+  "app_subtitle": "Résolveur de Problèmes Bluetooth avec IA pour Tous les Appareils",
+  "status_label": "Statut",
+  "devices_label": "Appareils Trouvés",
+  "scan_devices": "Scanner les Appareils Bluetooth",
+  "start_scan": "Commencer le Scan",
+  "scanning": "Scan des appareils en cours...",
+  "found_devices": "Appareils Trouvés",
+  "no_devices": "Aucun appareil trouvé. Cliquez sur 'Commencer le Scan' pour découvrir des appareils.",
+  "troubleshoot": "Dépannage IA",
+  "run_ai_diagnosis": "Exécuter le Diagnostic IA",
+  "auto_fix": "Réparation Automatique",
+  "no_diagnosis": "Les résultats du diagnostic apparaîtront ici après exécution du diagnostic IA.",
+  "device_info": "Informations sur l'Appareil",
+  "select_device": "Sélectionnez un appareil pour voir les informations détaillées.",
+  "download_app": "Télécharger l'Application Bureau",
+  "footer_text": "© 2024 Maître de Réparation Bluetooth IA. Tous droits réservés.",
+  "help": "Aide",
+  "about": "À Propos",
+  "contact": "Contact",
+  "online_mode": "Mode En Ligne",
+  "offline_mode": "Mode Hors Ligne",
+  "connection_issue_desc": "Signal Bluetooth faible détecté",
+  "audio_issue_desc": "Problèmes potentiels de qualité audio",
+  "battery_issue_desc": "Niveau de batterie faible détecté"
+}
