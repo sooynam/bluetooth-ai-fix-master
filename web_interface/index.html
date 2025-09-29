@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bluetooth AI Fix Master</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Bluetooth AI Fix Master</h1>
+            <p>AI-Powered Bluetooth Problem Solver</p>
+        </header>
 
+        <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+            </select>
+        </div>
+
+        <div class="scanner-section">
+            <h2 id="scanTitle">Scan Bluetooth Devices</h2>
+            <button class="btn primary" onclick="scanDevices()" id="scanBtn">
+                Start Scanning
+            </button>
+            <div id="scanResults"></div>
+        </div>
+
+        <div class="devices-section">
+            <h2 id="devicesTitle">Found Devices</h2>
+            <div id="devicesList" class="devices-list"></div>
+        </div>
+
+        <div class="ai-section">
+            <h2 id="aiTitle">AI Troubleshooter</h2>
+            <button class="btn secondary" onclick="runAIDiagnosis()" id="aiBtn">
+                Run AI Diagnosis
+            </button>
+            <div id="aiResults" class="results"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
