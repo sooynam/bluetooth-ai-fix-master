@@ -1,3 +1,4 @@
+<!-- web_interface/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,45 +6,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bluetooth AI Fix Master</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <select id="languageSelect" onchange="changeLanguage(this.value)">
+            <option value="en">English 🇺🇸</option>
+            <option value="hi">हिंदी 🇮🇳</option>
+            <option value="es">Español 🇪🇸</option>
+            <option value="fr">Français 🇫🇷</option>
+            <option value="ar">العربية 🇦🇪</option>
+            <option value="zh">中文 🇨🇳</option>
+        </select>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-bluetooth-b"></i>
+                <h1 id="appTitle">Bluetooth AI Fix Master</h1>
+            </div>
+            <p id="appSubtitle">AI-Powered Bluetooth Problem Solver for All Devices</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
     <div class="container">
-        <header class="header">
-            <h1>Bluetooth AI Fix Master</h1>
-            <p>AI-Powered Bluetooth Problem Solver</p>
-        </header>
-
-        <div class="language-selector">
-            <select id="languageSelect" onchange="changeLanguage(this.value)">
-                <option value="en">English</option>
-                <option value="hi">Hindi</option>
-                <option value="es">Spanish</option>
-                <option value="fr">French</option>
-            </select>
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-item">
+                <span id="statusLabel">Status:</span>
+                <span id="statusValue" class="status-loading">Loading...</span>
+            </div>
+            <div class="status-item">
+                <span id="devicesLabel">Devices Found:</span>
+                <span id="devicesCount">0</span>
+            </div>
         </div>
 
-        <div class="scanner-section">
-            <h2 id="scanTitle">Scan Bluetooth Devices</h2>
-            <button class="btn primary" onclick="scanDevices()" id="scanBtn">
-                Start Scanning
+        <!-- Mode Selection -->
+        <div class="mode-selection">
+            <button class="mode-btn active" onclick="setMode('online')" id="onlineBtn">
+                <i class="fas fa-cloud"></i>
+                <span id="onlineModeText">Online Mode</span>
             </button>
-            <div id="scanResults"></div>
-        </div>
-
-        <div class="devices-section">
-            <h2 id="devicesTitle">Found Devices</h2>
-            <div id="devicesList" class="devices-list"></div>
-        </div>
-
-        <div class="ai-section">
-            <h2 id="aiTitle">AI Troubleshooter</h2>
-            <button class="btn secondary" onclick="runAIDiagnosis()" id="aiBtn">
-                Run AI Diagnosis
+            <button class="mode-btn" onclick="setMode('offline')" id="offlineBtn">
+                <i class="fas fa-desktop"></i>
+                <span id="offlineModeText">Offline Mode</span>
             </button>
-            <div id="aiResults" class="results"></div>
+        </div>
+
+        <!-- Device Scanner -->
+        <div class="scanner-section card">
+            <h2 id="scanDevicesText"><i class="fas fa-search"></i> Scan Bluetooth Devices</h2>
+            <button class="btn btn-primary" onclick="scanDevices()" id="scanBtn">
+                <i class="fas fa-bluetooth-b"></i>
+                <span id="startScanText">Start Scanning</span>
+            </button>
+            
+            <div id="scanResults" class="scan-results">
+                <div class="loading" id="scanLoading" style="display: none;">
+                    <div class="spinner"></div>
+                    <span id="scanningText">Scanning for devices...</span>
+                </div>
+                <div id="scanResultsContent"></div>
+            </div>
+        </div>
+
+        <!-- Device List -->
+        <div class="devices-section card">
+            <h2 id="foundDevicesText"><i class="fas fa-list"></i> Found Devices</h2>
+            <div id="devicesList" class="devices-list">
+                <div class="empty-state" id="noDevicesMessage">
+                    <i class="fas fa-bluetooth"></i>
+                    <p id="noDevicesText">No devices found. Click "Start Scanning" to discover devices.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Troubleshooter -->
+        <div class="troubleshooter-section card">
+            <h2 id="troubleshootText"><i class="fas fa-robot"></i> AI Troubleshooter</h2>
+            <div class="troubleshoot-options">
+                <button class="btn btn-secondary" onclick="runAIDiagnosis()" id="aiDiagnosisBtn">
+                    <i class="fas fa-stethoscope"></i>
+                    <span id="runAIDiagnosisText">Run AI Diagnosis</span>
+                </button>
+                <button class="btn btn-success" onclick="autoFixIssues()" id="autoFixBtn">
+                    <i class="fas fa-magic"></i>
+                    <span id="autoFixText">Auto Fix Issues</span>
+                </button>
+            </div>
+            
+            <div id="troubleshootResults" class="troubleshoot-results">
+                <div class="empty-state">
+                    <i class="fas fa-chart-line"></i>
+                    <p id="noDiagnosisText">Diagnosis results will appear here after running AI diagnosis.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Device Information -->
+        <div class="device-info-section card">
+            <h2 id="deviceInfoText"><i class="fas fa-info-circle"></i> Device Information</h2>
+            <div id="deviceInfo" class="device-info">
+                <div class="empty-state">
+                    <i class="fas fa-mobile-alt"></i>
+                    <p id="selectDeviceText">Select a device to view detailed information.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Section -->
+        <div class="download-section card">
+            <h2 id="downloadAppText"><i class="fas fa-download"></i> Download Desktop App</h2>
+            <div class="download-options">
+                <button class="download-btn" onclick="downloadApp('windows')">
+                    <i class="fab fa-windows"></i>
+                    <span>Windows</span>
+                </button>
+                <button class="download-btn" onclick="downloadApp('linux')">
+                    <i class="fab fa-linux"></i>
+                    <span>Linux</span>
+                </button>
+                <button class="download-btn" onclick="downloadApp('mac')">
+                    <i class="fab fa-apple"></i>
+                    <span>macOS</span>
+                </button>
+            </div>
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p id="footerText">&copy; 2024 Bluetooth AI Fix Master. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#" id="helpLink">Help</a>
+                <a href="#" id="aboutLink">About</a>
+                <a href="#" id="contactLink">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
     <script src="script.js"></script>
+    <script src="bluetooth_web.js"></script>
 </body>
 </html>
