@@ -3,16 +3,121 @@
     "Sony": {
       "WH-1000XM4": {
         "mac_prefix": "04:5F",
-        "common_issues": ["connection_drop", "audio_quality"],
-        "fixes": ["reset_connection", "update_firmware"]
+        "common_issues": ["connection_drop", "audio_quality", "battery_drain", "touch_controls"],
+        "recommended_fixes": ["reset_connection", "update_firmware", "battery_calibration", "clean_earcups"],
+        "auto_connect": true,
+        "ai_optimization": "high",
+        "device_type": "headphones",
+        "specs": {
+          "battery_life": "30 hours",
+          "noise_canceling": true,
+          "voice_assistant": true
+        }
+      },
+      "WF-1000XM4": {
+        "mac_prefix": "04:5F",
+        "common_issues": ["pairing", "battery", "fit_issues", "charging_case"],
+        "recommended_fixes": ["reset_pairing", "case_cleaning", "ear_tip_replacement", "firmware_update"],
+        "auto_connect": true,
+        "ai_optimization": "high",
+        "device_type": "earbuds"
       }
     },
     "Apple": {
       "AirPods Pro": {
-        "mac_prefix": "DC:56", 
-        "common_issues": ["connectivity", "sound_balance"],
-        "fixes": ["reconnect_sequence", "audio_balance"]
+        "mac_prefix": "DC:56",
+        "common_issues": ["connectivity", "sound_balance", "mic_issues", "spatial_audio"],
+        "recommended_fixes": ["reconnect_sequence", "audio_balance", "mic_test", "reset_spatial"],
+        "auto_connect": true,
+        "ai_optimization": "high",
+        "device_type": "earbuds"
+      },
+      "AirPods Max": {
+        "mac_prefix": "DC:56",
+        "common_issues": ["anc_issues", "battery_drain", "comfort", "case_charging"],
+        "recommended_fixes": ["reset_anc", "battery_recalibration", "adjust_fit", "clean_headband"],
+        "auto_connect": true,
+        "ai_optimization": "high",
+        "device_type": "headphones"
       }
+    },
+    "Samsung": {
+      "Galaxy Buds Pro": {
+        "mac_prefix": "64:5A",
+        "common_issues": ["connection_stability", "ambient_sound", "touch_controls", "battery"],
+        "recommended_fixes": ["reset_gear_app", "update_software", "clean_buds", "reset_connection"],
+        "auto_connect": true,
+        "ai_optimization": "medium",
+        "device_type": "earbuds"
+      },
+      "Galaxy Buds Live": {
+        "mac_prefix": "64:5A",
+        "common_issues": ["fit_issues", "audio_leakage", "battery_life", "touch_sensitivity"],
+        "recommended_fixes": ["adjust_fit", "check_seal", "battery_calibration", "touch_settings"],
+        "auto_connect": true,
+        "ai_optimization": "medium",
+        "device_type": "earbuds"
+      }
+    },
+    "Logitech": {
+      "MX Keys": {
+        "mac_prefix": "70:B3",
+        "common_issues": ["pairing_mode", "battery_indicator", "multi_device", "key_response"],
+        "recommended_fixes": ["reset_pairing", "recharge_battery", "reconnect_all_devices", "clean_keys"],
+        "auto_connect": true,
+        "ai_optimization": "medium",
+        "device_type": "keyboard"
+      },
+      "MX Master 3": {
+        "mac_prefix": "70:B3",
+        "common_issues": ["scroll_wheel", "gesture_buttons", "battery_life", "cursor_movement"],
+        "recommended_fixes": ["reset_mouse", "update_options_software", "recalibrate", "clean_sensor"],
+        "auto_connect": true,
+        "ai_optimization": "medium",
+        "device_type": "mouse"
+      }
+    },
+    "Bose": {
+      "QuietComfort 35 II": {
+        "mac_prefix": "04:52",
+        "common_issues": ["noise_canceling", "battery", "voice_prompts", "connectivity"],
+        "recommended_fixes": ["reset_anc", "battery_check", "update_bose_connect", "reconnect"],
+        "auto_connect": true,
+        "ai_optimization": "high",
+        "device_type": "headphones"
+      }
+    },
+    "JBL": {
+      "Flip 5": {
+        "mac_prefix": "00:11:83",
+        "common_issues": ["pairing", "battery", "audio_quality", "water_resistance"],
+        "recommended_fixes": ["reset_speaker", "charge_fully", "clean_ports", "update_firmware"],
+        "auto_connect": true,
+        "ai_optimization": "medium",
+        "device_type": "speaker"
+      }
+    }
+  },
+  "issue_patterns": {
+    "connection_drop": {
+      "description": "Frequent disconnections or unstable connection",
+      "severity": "high",
+      "common_causes": ["interference", "low_battery", "driver_issues", "distance", "obstacles"]
+    },
+    "audio_quality": {
+      "description": "Poor sound quality, crackling, or no audio",
+      "severity": "medium",
+      "common_causes": ["codec_mismatch", "audio_settings", "hardware_issue", "bandwidth"]
+    },
+    "battery_drain": {
+      "description": "Battery drains faster than expected",
+      "severity": "medium",
+      "common_causes": ["battery_age", "firmware_bug", "excessive_usage", "background_processes"]
+    },
+    "pairing": {
+      "description": "Device won't pair or connect",
+      "severity": "high",
+      "common_causes": ["pairing_cache", "compatibility", "distance", "device_limits"]
     }
   }
 }
