@@ -6,12 +6,14 @@ AI-powered Bluetooth problem solver with multi-language support for all operatin
 
 ## 🌟 Features
 
-- 🤖 **AI-Powered Diagnosis** - Smart problem detection
-- 🌐 **Multi-Language Support** - 8 languages available
+- 🤖 **AI-Powered Diagnosis** - Smart problem detection using machine learning
+- 🌐 **Multi-Language Support** - 8 languages available (English, Hindi, Spanish, French, Arabic, Chinese, Portuguese, German)
 - 💻 **Dual Interface** - Desktop GUI + Web interface
-- 📱 **1000+ Devices** - Comprehensive device database
+- 📱 **1000+ Devices** - Comprehensive device database with fixes
 - 🔧 **Auto Fix** - One-click problem resolution
-- 🎯 **Cross-Platform** - Windows, Linux, macOS, Android
+- 🎯 **Cross-Platform** - Windows, Linux, macOS, Android support
+- 📊 **Real-time Analysis** - Live device monitoring and diagnostics
+- 🔄 **Offline Mode** - Works without internet connection
 
 ## 🚀 Quick Start
 
