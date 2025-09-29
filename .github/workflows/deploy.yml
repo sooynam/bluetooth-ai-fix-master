@@ -1,1 +1,50 @@
+# .github/workflows/deploy.yml
+name: Deploy to GitHub Pages
 
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+      
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        pip install flask
+        
+    - name: Create deployment package
+      run: |
+        mkdir -p _site
+        cp -r web_interface/* _site/
+        cp README.md _site/
+        echo "Bluetooth AI Fix Master - Web Edition" > _site/index.html
+        echo "Deployed via GitHub Actions" >> _site/deployment-info.txt
+        date >> _site/deployment-info.txt
+        
+    - name: Setup Pages
+      uses: actions/configure-pages@v3
+      
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: './_site'
+        
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
