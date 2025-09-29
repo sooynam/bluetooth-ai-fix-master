@@ -1,4 +1,3 @@
-# main.py
 #!/usr/bin/env python3
 """
 Bluetooth AI Fix Master - Main Application
