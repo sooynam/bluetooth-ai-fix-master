@@ -1,5 +1,41 @@
 # requirements.txt
+
+# Web Framework
+Flask==2.3.3
+Werkzeug==2.3.7
+
+# HTTP Requests
+requests==2.31.0
+
+# Data Processing
+numpy==1.24.3
+pandas==2.0.3
+
+# AI/ML (Lightweight)
+scikit-learn==1.3.0
+joblib==1.3.2
+
+# Utilities
+python-dotenv==1.0.0
+click==8.1.7
+
+# Bluetooth (Platform-specific)
+pybluez==0.23
+# Note: pybluez might need manual installation on some systems
+
+# GUI (Optional - for desktop app)
 tkinter
-flask
-requests
-pybluez
+# Note: tkinter usually comes with Python
+
+# Serialization
+PyYAML==6.0.1
+
+# Logging
+colorlog==6.7.0
+
+# Date/Time
+python-dateutil==2.8.2
+
+# For packaging
+setuptools==68.0.0
+wheel==0.41.2
