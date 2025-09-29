@@ -1,1 +1,18 @@
-
+{
+  "devices": {
+    "Sony": {
+      "WH-1000XM4": {
+        "mac_prefix": "04:5F",
+        "common_issues": ["connection_drop", "audio_quality"],
+        "fixes": ["reset_connection", "update_firmware"]
+      }
+    },
+    "Apple": {
+      "AirPods Pro": {
+        "mac_prefix": "DC:56", 
+        "common_issues": ["connectivity", "sound_balance"],
+        "fixes": ["reconnect_sequence", "audio_balance"]
+      }
+    }
+  }
+}
